@@ -45,3 +45,9 @@ bindkey '^T' autosuggest-toggle
 
 # Fix LDAP issue
 unsetopt cdablevars
+
+# Site mix-ins
+SITE_ZSHRC="$HOME/site-env/zsh/.zshrc"
+if [[ -r $SITE_ZSHRC ]]; then
+  source $SITE_ZSHRC
+fi
