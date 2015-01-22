@@ -3,4 +3,4 @@
 export ZDOTDIR=$(dirname $(readlink -f ${(%):-%N}))
 
 typeset -U path
-path+=("$HOME/bin")
+path=($HOME/bin $path $HOME/bin)
