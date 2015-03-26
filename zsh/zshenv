@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-export ZDOTDIR=$(dirname $(readlink -f ${(%):-%N}))
-
-typeset -U path
-path=(/usr/games $path $HOME/bin)
-echo foo

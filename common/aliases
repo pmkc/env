@@ -1,11 +1,11 @@
 alias sl="sl -e"
-alias gs=gsutil
 alias ci=vi
 alias vi=vim
 alias chrome=google-chrome
-alias chrome-personal="google-chrome --user-data-dir=$HOME/.config/google-chrome/Personal"
 alias mdkir=mkdir
-alias socksproxy="gcutil ssh --ssh_arg='-fgND 12345' gateway"
-alias g5='/google/data/ro/projects/shelltoys/g5.sar'
-alias fixdeps=/google/src/files/head/depot/devtools/blazeutils/fixdeps_main.par
-alias apido=/google/data/ro/teams/oneplatform/apido
+alias mkidr=mkdir
+alias sp=". $HOME/.profile"
+alias tm='tmux detach; tmux -2 a || tmux -2 new'
+alias de='disown && exit'
+alias cde='google-chrome & disown && exit'
+alias oops='history -d $((HISTCMD-2)); clear'
