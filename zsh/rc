@@ -27,7 +27,7 @@ antigen theme fishy
 antigen apply
 ### END Antigen
 
-ZKBD_FILE=~/env/zsh/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
+ZKBD_FILE=~/env/zsh/.zkbd/xterm
 source-if-exists $ZKBD_FILE
 
 # Highlighting style

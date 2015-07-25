@@ -4,6 +4,7 @@ alias vi=vim
 alias chrome=google-chrome
 alias mdkir=mkdir
 alias mkidr=mkdir
+alias mctemp='cd $(mktemp -d)'
 alias sp=". $HOME/.profile"
 alias tm='tmux detach; tmux -2 a || tmux -2 new'
 alias de='disown && exit'
