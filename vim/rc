@@ -313,7 +313,7 @@ set t_Co=256
 
 set undofile   " Maintain undo history between sessions
 
-let site_vimrc = "~/site-env/vim/rc"
-""if filereadable(site_vimrc)
-  source site_vimrc
-""endif
+let site_vimrc = $HOME . '/site-env/vim/rc'
+if filereadable(site_vimrc)
+ exec 'source ' . site_vimrc
+endif
