@@ -59,8 +59,8 @@ editor_cmd = terminal .. " -e " .. editor .. " " .. awesome.conffile
 spawn_clients = true
 
 -- Transparency
---awful.util.spawn_with_shell("xcompmgr -n &")
---awful.util.spawn_with_shell("nitrogen --restore")
+awful.util.spawn_with_shell("xcompmgr -n &")
+awful.util.spawn_with_shell("nitrogen --restore")
 
 -- Themes define colours, icons, and wallpapers
 beautiful.init(home .. "/.config/awesome/themes/default/theme.lua")
@@ -157,7 +157,7 @@ shifty.config.apps = {
     },
     {
         match = {
-          class={"^Google%-chrome$"},
+          class={"^google%-chrome$"},
         },
         honorsizehints = false,
         float = false,
@@ -165,13 +165,13 @@ shifty.config.apps = {
     },
     {
         match = {
-          instance = {"Google%-chrome %(.*google%-chrome/Personal%)"},
+          instance = {"google%-chrome %(.*google%-chrome/Personal%)"},
         },
         tag = "home",
     },
     {
         match = {
-          --class={"jetbrains%-idea"},
+          class={"jetbrains%-idea"},
           name={"IntelliJ IDEA"},
        },
         tag = "dev",

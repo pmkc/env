@@ -6,6 +6,7 @@ call vundle#begin()
 Plugin 'derekwyatt/vim-scala'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -2,9 +2,6 @@
 
 export ZDOTDIR=$(dirname $(readlink -f ${(%):-%N}))
 
-typeset -U path
-path=($HOME/bin $path /usr/games)
-
 if [[ -r $HOME/site-env/zsh/env ]]; then
   source $HOME/site-env/zsh/env
 fi

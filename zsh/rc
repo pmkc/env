@@ -71,6 +71,14 @@ bindkey "${key[Down]}" local-history-substring-search-down
 bindkey "^[[1;5A" history-substring-search-up    # [CTRL] + Cursor up
 bindkey "^[[1;5B" history-substring-search-down  # [CTRL] + Cursor down
 
+# Misc
+setopt interactivecomments
+
+# TMUX
+if [[ -n "${TMUX}" ]]; then
+  eval $(tmux show-environment | grep '=')
+fi
+
 # Site mix-ins
 MIX_INS=(
     $HOME/env/common/*
