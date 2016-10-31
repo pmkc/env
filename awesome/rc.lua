@@ -157,7 +157,7 @@ shifty.config.apps = {
     },
     {
         match = {
-          class={"^google%-chrome$"},
+          class={"^Google%-chrome$"},
         },
         honorsizehints = false,
         float = false,

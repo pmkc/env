@@ -73,10 +73,11 @@ bindkey "^[[1;5B" history-substring-search-down  # [CTRL] + Cursor down
 
 # Misc
 setopt interactivecomments
+setopt extended_glob
 
 # TMUX
 if [[ -n "${TMUX}" ]]; then
-  eval $(tmux show-environment | grep '=')
+  eval $(tmux show-environment | sed -En "s/([^=]+)=(.*)/export \1='\2'/p")
 fi
 
 # Site mix-ins
