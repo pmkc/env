@@ -86,3 +86,5 @@ MIX_INS=(
     $HOME/site-env/zsh/rc
 )
 eachf source-if-exists $MIX_INS
+
+export MAVEN_OPTS='-XX:+TieredCompilation -XX:TieredStopAtLevel=1'

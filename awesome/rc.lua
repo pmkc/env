@@ -53,7 +53,7 @@ home = os.getenv("HOME")
 terminal = "gnome-terminal"
 browser = "google-chrome"
 shell = os.getenv("SHELL") or "zsh"
-editor = os.getenv("EDITOR") or "vim"
+editor = os.getenv("EDITOR") or "emacs -nw"
 editor_cmd = terminal .. " -e " .. editor .. " " .. awesome.conffile
 -- For debug restarting
 spawn_clients = true
@@ -144,7 +144,7 @@ shifty.config.tags = {
 shifty.config.apps = {
     {
         match = {
-          class = {"terminal"},
+          class = {"terminal", ".*emacs$"},
         },
         honorsizehints = false,
     },
@@ -172,7 +172,6 @@ shifty.config.apps = {
     {
         match = {
           class={"jetbrains%-idea"},
-          name={"IntelliJ IDEA"},
        },
         tag = "dev",
     },

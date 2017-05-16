@@ -1,12 +1,11 @@
 alias sl="sl -e"
-alias ci=vi
-alias vi=vim
 alias chrome=google-chrome
-alias mdkir=mkdir
-alias mkidr=mkdir
 alias mctemp='cd $(mktemp -d)'
 alias sp=". $HOME/.profile"
 alias tm='tmux detach; tmux -2 a || tmux -2 new'
 alias de='disown && exit'
 alias cde='google-chrome & disown && exit'
 alias oops='history -d $((HISTCMD-2)); clear'
+alias mvn='mvn -T1C'
+alias vi='emacs -nw'
+alias emacs-gtk=emacs
