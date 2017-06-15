@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Gnome with Awesome
+Comment=Gnome with Awesome as window manager
+TryExec=gnome-session
+Exec=gnome-session --session=awesome
+Type=Application
