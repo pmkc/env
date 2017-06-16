@@ -7,5 +7,4 @@ alias de='disown && exit'
 alias cde='google-chrome & disown && exit'
 alias oops='history -d $((HISTCMD-2)); clear'
 alias mvn='mvn -T1C'
-alias vi='emacs -nw'
 alias emacs-gtk=emacs
