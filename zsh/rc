@@ -83,6 +83,7 @@ fi
 # Site mix-ins
 MIX_INS=(
     $HOME/env/common/*
+    $HOME/env/lib/docker-alias/zshrc
     $HOME/site-env/zsh/rc
 )
 eachf source-if-exists $MIX_INS
