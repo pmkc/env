@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/usr/local/google/home/pclay/git/hub/conscrypt/conscrypt/third_party/boringssl/build'
-let g:netrw_dirhist_2='/usr/local/google/home/pclay/git/5/gcloud/google3/third_party/py/googlecloudsdk/api_lib/dataproc'
-let g:netrw_dirhist_3='/usr/local/google/home/pclay/git/hub/gcp/dataproc-initialization-actions/nvidia-cuda'
-let g:netrw_dirhist_4='/usr/local/google/home/pclay/git/hub/gcp/google-cloud-java/google-cloud-core'
-let g:netrw_dirhist_5='/usr/local/google/home/pclay/git/5/mon/mon/google3/production/borg/cloud-data-refinery/templates'
-let g:netrw_dirhist_6='/usr/local/google/home/pclay/git/5/both/google3/google/cloud/dataproc'
