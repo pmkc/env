@@ -3,3 +3,5 @@
 mcdir() {
   mkdir -p $@; cd $@
 }
+
+highlight () { grep --color -E "$1|$" "${@:2}" ; }
