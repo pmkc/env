@@ -31,10 +31,10 @@ unbind [
 bind y copy-mode
 unbind p
 bind p paste-buffer
-bind -t vi-copy v begin-selection
-bind -t vi-copy y copy-pipe "xsel -bi"
-bind -t vi-copy Enter copy-pipe "xsel -bi"
-bind -t vi-copy Escape cancel
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'V' send -X select-line
+bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
+bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "xclip -in -selection clipboard"
 bind C-y run "tmux show-buffer | xsel -bi"
 
 

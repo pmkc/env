@@ -5,3 +5,12 @@ mcdir() {
 }
 
 highlight () { grep --color -E "$1|$" "${@:2}" ; }
+
+ua-install () {
+local name=$(echo $1 | grep -o '[^/]*$')
+  sudo update-alternatives --install /usr/local/bin/$name $name $1 100
+}
+
+sbt-what-depends() {
+sbt "whatDependsOn $(echo $@ | sed 's/:/ /g')"
+}
