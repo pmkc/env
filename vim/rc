@@ -318,3 +318,6 @@ let site_vimrc = $HOME . '/site-env/vim/rc'
 if filereadable(site_vimrc)
  exec 'source ' . site_vimrc
 endif
+
+nnoremap <PageUp> gg
+nnoremap <PageDown> G
