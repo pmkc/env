@@ -9,3 +9,4 @@ alias oops='history -d $((HISTCMD-2)); clear'
 alias mvn='mvn -T1C'
 alias emacs-gtk=emacs
 alias xcape="pgrep xcape || xcape -e 'Caps_Lock=Escape;Control_L=Escape'"
+alias vd=vimdiff

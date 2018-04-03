@@ -45,11 +45,10 @@ zle -N zle-line-init
 bindkey '^f' vi-forward-blank-word
 bindkey  "${key[Home]}"    vi-beginning-of-line
 bindkey  "${key[End]}"     vi-end-of-line
+bindkey  "${key[PageUp]}"     vi-end-of-line
+bindkey  "${key[PageDown]}"     vi-end-of-line
 
-# Fix LDAP issue
-unsetopt cdablevars
-
-# per-tab history
+## per-tab history
 local-history-substring-search-up() {
     zle set-local-history 1
     zle history-substring-search-up
@@ -63,13 +62,18 @@ local-history-substring-search-down() {
 }
 zle -N local-history-substring-search-down
 
-# history-substring-search config
-# bind UP and DOWN arrow keys
+## history-substring-search config
+## bind UP and DOWN arrow keys
 bindkey "${key[Up]}" local-history-substring-search-up
 bindkey "${key[Down]}" local-history-substring-search-down
 
 bindkey "^[[1;5A" history-substring-search-up    # [CTRL] + Cursor up
 bindkey "^[[1;5B" history-substring-search-down  # [CTRL] + Cursor down
+bindkey "${key[PageUp]}" history-substring-search-up
+bindkey "${key[PageDown]}" history-substring-search-down
+
+# Fix LDAP issue
+unsetopt cdablevars
 
 # Misc
 setopt interactivecomments

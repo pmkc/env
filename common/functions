@@ -12,5 +12,24 @@ local name=$(echo $1 | grep -o '[^/]*$')
 }
 
 sbt-what-depends() {
-sbt "whatDependsOn $(echo $@ | sed 's/:/ /g')"
+  sbt "whatDependsOn $(echo $@ | sed 's/:/ /g')"
+}
+
+replacelink() {
+  [[ -L "$1" ]] || (echo 'not a link' && return)
+  local src="$(readlink "$1")"
+  rm -f "$1"
+  cp -r "$src" "$1"
+}
+
+mvn-get() {
+  local args=(
+    'org.apache.maven.plugins:maven-dependency-plugin:3.0.2:copy'
+    -Doverwrite=true
+    -DoutputDirectory=$(pwd))
+  if [[ "$1" == "--clean" ]]; then
+    args+=("-Dmaven.repo.local=$(mktemp -d)")
+    shift
+  fi
+  mvn "${args[@]}" -Dartifact="$@"
 }
