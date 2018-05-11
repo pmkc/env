@@ -1,5 +1,6 @@
 .zcompdump*
 .zcompdumps
+*.zwc
 .netrwhist
 tmux/plugins
 tmux/resurrect
