@@ -33,3 +33,34 @@ mvn-get() {
   fi
   mvn "${args[@]}" -Dartifact="$@"
 }
+
+__git_continue() {
+  git rebase --continue \
+    || git cherry-pick --continue \
+    || git merge --continue
+}
+
+__git_abort() {
+  git rebase --abort \
+    || git cherry-pick --abort \
+    || git merge --abort
+}
+
+__git_amend() {
+  local ref head parent stash stash2
+  [[ -n "$1" ]] &&
+  ref=$(git rev-parse "$1") &&
+  head=$(git rev-parse HEAD) &&
+  [[ -n "$head" && -n "$ref" ]] &&
+  parent=$(git rev-list --ancestry-path "$ref".."$head"| tail -1) &&
+  stash=$(git stash create) &&
+  [[ -n "$parent" && -n "$stash" ]] &&
+  git reset --hard "$ref" &&
+  git stash pop "$stash" &&
+  git commit --amend "${@:2}" &&
+  stash2=$(git stash create) &&
+  git rebase --onto HEAD "$parent".."$head" ||
+  echo 'Oops' >&2 && return 1
+
+  [[ -n "$stash2" ]] && git stash pop "$stash2"
+}

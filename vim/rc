@@ -17,7 +17,9 @@ filetype plugin indent on    " required
 " autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 " Remove any trailing whitespace that is in the file
-autocmd BufRead,BufWrite * if ! &bin && ! &diff | silent! %s/\s\+$//ge | endif
+if ! &bin && ! &diff
+  autocmd BufRead,BufWrite *  silent! %s/\s\+$//ge
+endif
 
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
@@ -319,5 +321,5 @@ if filereadable(site_vimrc)
  exec 'source ' . site_vimrc
 endif
 
-nnoremap <PageUp> gg
-nnoremap <PageDown> G
+nnoremap <PageUp> <C-U>
+nnoremap <PageDown> <C-D>

@@ -10,5 +10,5 @@ alias mvn='mvn -T1C'
 alias emacs-gtk=emacs
 alias xcape="pgrep xcape || xcape -e 'Caps_Lock=Escape;Control_L=Escape'"
 alias vd=vimdiff
-alias git-continue="git rebase --continue || git cherry-pick --continue || git merge --continue"
-alias git-abort="git rebase --abort || git cherry-pick --abort || git merge --abort"
+alias git-continue=__git_continue
+alias git-abort=__git_abort
