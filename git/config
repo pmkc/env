@@ -1,0 +1,37 @@
+[user]
+	email = patrickmclay@gmail.com
+	name = Patrick Clay
+[color]
+	ui = true
+[diff]
+	tool = vimdiff2
+	renameLimit = 2000
+[merge]
+	tool = fugitive
+	conflictstyle = diff3
+[difftool]
+	prompt = false
+[core]
+	excludesfile = .git/info/exclude
+[url "git@github.com:"]
+	insteadof = gh:
+[pull]
+    ff = only
+[push]
+	default = simple
+[alias]
+	l = log --pretty=format:'%C(yellow)%h%C(white) %an <%ae> %>|(80)%ai%Creset%n%C(bold)%w(0,4,4)%s%C(reset)%n%+b'
+	ll = log --stat
+	lg = log
+	lp = log -p
+[mergetool]
+	prompt = false
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[multi]
+	exporttags = default
+[core]
+    editor = vim
+    whitespace = -trailing-space,-indent-with-non-tab,-tab-in-indent
+[include]
+    path = site-env/git/config
