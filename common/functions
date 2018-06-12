@@ -34,16 +34,32 @@ mvn-get() {
   mvn "${args[@]}" -Dartifact="$@"
 }
 
+gethub() {
+  local dir=$HOME/git/hub/${1%%\/*}
+  mkdir -p $dir
+  cd $dir
+  git clone gh:"$@"
+}
+
+gh-remote-add() {
+set -ex
+  local repo="gh:$1/$(basename $(realpath $(__gitdir)/..))"
+  git fetch "$repo" \
+    && git remote add $1 "$repo" \
+    && git fetch --all
+set +ex
+}
+
 __git_continue() {
-  git rebase --continue \
-    || git cherry-pick --continue \
-    || git merge --continue
+  git rebase --continue "$@" \
+    || git cherry-pick --continue "$@" \
+    || git merge --continue "@"
 }
 
 __git_abort() {
-  git rebase --abort \
-    || git cherry-pick --abort \
-    || git merge --abort
+  git rebase --abort "$@" \
+    || git cherry-pick --abort "$@" \
+    || git merge --abort "$@"
 }
 
 __git_amend() {
