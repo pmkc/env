@@ -11,8 +11,6 @@
   conflictstyle = diff3
 [difftool]
   prompt = false
-[core]
-  excludesfile = .git/info/exclude
 [url "git@github.com:"]
   insteadof = gh:
 [pull]
@@ -37,5 +35,6 @@
 [core]
   editor = vim
   whitespace = -trailing-space,-indent-with-non-tab,-tab-in-indent
+  excludesfile = ~/env/git/exclude
 [include]
   path = site-env/git/config
