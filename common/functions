@@ -39,21 +39,20 @@ gethub() {
   mkdir -p $dir
   cd $dir
   git clone gh:"$@"
+  cd ${1#*\/}
 }
 
 gh-remote-add() {
-set -ex
   local repo="gh:$1/$(basename $(realpath $(__gitdir)/..))"
   git fetch "$repo" \
     && git remote add $1 "$repo" \
     && git fetch --all
-set +ex
 }
 
 __git_continue() {
   git rebase --continue "$@" \
     || git cherry-pick --continue "$@" \
-    || git merge --continue "@"
+    || git merge --continue "$@"
 }
 
 __git_abort() {

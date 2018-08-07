@@ -69,6 +69,8 @@ bindkey "${key[Down]}" local-history-substring-search-down
 
 bindkey "^[[1;5A" history-substring-search-up    # [CTRL] + Cursor up
 bindkey "^[[1;5B" history-substring-search-down  # [CTRL] + Cursor down
+bindkey "^[[1;5C" vi-forward-word                # [CTRL] + Cursor right
+bindkey "^[[1;5D" vi-backward-word               # [CTRL] + Cursor left
 bindkey "${key[PageUp]}" history-substring-search-up
 bindkey "${key[PageDown]}" history-substring-search-down
 

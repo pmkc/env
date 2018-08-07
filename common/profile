@@ -24,3 +24,6 @@ fi
 if [ -d "$HOME/.cabal/bin" ] ; then
     PATH="$PATH:$HOME/.cabal/bin"
 fi
+if [ -d "$HOME/go/bin" ] ; then
+    PATH="$PATH:$HOME/go/bin"
+fi
