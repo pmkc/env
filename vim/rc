@@ -324,3 +324,6 @@ endif
 
 nnoremap <PageUp> <C-U>
 nnoremap <PageDown> <C-D>
+
+" try this out
+set clipboard+=unnamed

@@ -637,3 +637,5 @@ metastore_db/
 ## Windows
 *.bat
 
+## Fonts
+.uuid
