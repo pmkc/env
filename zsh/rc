@@ -1,31 +1,13 @@
 #!/usr/bin/env zsh
 
-# Load bash completion before zsh competions.
-source $HOME/env/common/rc_helpers.sh
-autoload -Uz compinit bashcompinit
-compinit
-bashcompinit
-
-### Antegen
+### Antigen
 source ~/env/lib/antigen/antigen.zsh
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle pip
-antigen bundle python
-antigen bundle tmux
-antigen bundle vi-mode
-antigen bundle command-not-found
-# Fish-like bundles
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-# Funtional stuff
-antigen bundle Tarrasch/zsh-functional
-antigen theme fishy
-antigen apply
-### END Antigen
+antigen init ~/env/zsh/antigen/rc
+
+source ~/env/common/rc_helpers.sh
+# autoload -Uz compinit bashcompinit
+# compinit
+# bashcompinit
 
 ZKBD_FILE=~/env/zsh/.zkbd/xterm
 source-if-exists $ZKBD_FILE
@@ -34,19 +16,12 @@ source-if-exists $ZKBD_FILE
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_STYLES[path_approx]='fg=magenta,bold'
 
-# Line load hook
-zle-line-init() {
-  # Enable autosuggestions automatically
-  #zle autosuggest-start
-}
-zle -N zle-line-init
-
 # Key-bindings
-bindkey '^f' vi-forward-blank-word
-bindkey  "${key[Home]}"    vi-beginning-of-line
-bindkey  "${key[End]}"     vi-end-of-line
+bindkey '^f'                  vi-forward-blank-word
+bindkey  "${key[Home]}"       vi-beginning-of-line
+bindkey  "${key[End]}"        vi-end-of-line
 bindkey  "${key[PageUp]}"     vi-end-of-line
-bindkey  "${key[PageDown]}"     vi-end-of-line
+bindkey  "${key[PageDown]}"   vi-end-of-line
 
 ## per-tab history
 local-history-substring-search-up() {
@@ -64,14 +39,14 @@ zle -N local-history-substring-search-down
 
 ## history-substring-search config
 ## bind UP and DOWN arrow keys
-bindkey "${key[Up]}" local-history-substring-search-up
+bindkey "${key[Up]}"   local-history-substring-search-up
 bindkey "${key[Down]}" local-history-substring-search-down
 
-bindkey "^[[1;5A" history-substring-search-up    # [CTRL] + Cursor up
-bindkey "^[[1;5B" history-substring-search-down  # [CTRL] + Cursor down
-bindkey "^[[1;5C" vi-forward-word                # [CTRL] + Cursor right
-bindkey "^[[1;5D" vi-backward-word               # [CTRL] + Cursor left
-bindkey "${key[PageUp]}" history-substring-search-up
+bindkey "^[[1;5A"          history-substring-search-up    # [CTRL] + Cursor up
+bindkey "^[[1;5B"          history-substring-search-down  # [CTRL] + Cursor down
+bindkey "^[[1;5C"          vi-forward-word                # [CTRL] + Cursor right
+bindkey "^[[1;5D"          vi-backward-word               # [CTRL] + Cursor left
+bindkey "${key[PageUp]}"   history-substring-search-up
 bindkey "${key[PageDown]}" history-substring-search-down
 
 # Fix LDAP issue

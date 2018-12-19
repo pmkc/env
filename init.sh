@@ -11,7 +11,7 @@ ln -ns env/zsh/env ~/.zshenv
 
 # Vim
 mkdir -p ~/.cache/vim
-ln -ns ~/env/vim/rc ~/.vimrc
+ln -ns ~/env/vim/rc.vim ~/.vimrc
 ln -ns ~/env/vim ~/.vim
 
 # Tmux

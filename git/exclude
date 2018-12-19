@@ -55,6 +55,9 @@ flycheck_*.el
 ## Nuke it all
 .idea/
 
+## ???
+.ijwb/
+
 ## User-specific stuff:
 .idea/**/workspace.xml
 .idea/**/tasks.xml

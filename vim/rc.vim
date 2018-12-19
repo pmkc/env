@@ -1,3 +1,4 @@
+" myrc.vim
 " Vundle
 set nocompatible              " be iMproved, required
 " set the runtime path to include Vundle and initialize
@@ -7,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'derekwyatt/vim-scala'
 call vundle#end()            " required
@@ -327,3 +329,7 @@ nnoremap <PageDown> <C-D>
 
 " try this out
 set clipboard+=unnamed
+
+" comment
+nmap <C-_> gcc
+vmap <C-_> gc
