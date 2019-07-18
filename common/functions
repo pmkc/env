@@ -4,6 +4,10 @@ mcdir() {
   mkdir -p $@; cd $@
 }
 
+mvcp() {
+  cp "$2" "$1"
+}
+
 highlight () { grep --color -E "$1|$" "${@:2}" ; }
 
 ua-install () {
@@ -38,7 +42,11 @@ gethub() {
   local dir=$HOME/git/hub/${1%%\/*}
   mkdir -p $dir
   cd $dir
-  git clone gh:"$@"
+  repo="$1"
+  if [[ ! "$repo" =~ '/' ]]; then
+    repo="$1/$1"
+  fi
+  git clone gh:"$repo" "${@:2}"
   cd ${1#*\/}
 }
 
@@ -78,4 +86,15 @@ __git_amend() {
   echo 'Oops' >&2 && return 1
 
   [[ -n "$stash2" ]] && git stash pop "$stash2"
+}
+
+retry () {
+  while ! "$@"
+    do :
+   done
+}
+
+echodo() {
+  echo "$@"
+  "$@"
 }

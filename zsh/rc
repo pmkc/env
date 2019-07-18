@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+#set -x
+
+#bash; exit $?
+
 ### Antigen
 source ~/env/lib/antigen/antigen.zsh
 antigen init ~/env/zsh/antigen/rc
@@ -14,7 +18,14 @@ source-if-exists $ZKBD_FILE
 
 # Highlighting style
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-ZSH_HIGHLIGHT_STYLES[path_approx]='fg=magenta,bold'
+#ZSH_HIGHLIGHT_STYLES[path_approx]='fg=magenta,bold'
+
+# Stop auto suggest from breaking history substring??
+zle-line-init() {
+  # Enable autosuggestions automatically
+  #zle autosuggest-start
+}
+zle -N zle-line-init
 
 # Key-bindings
 bindkey '^f'                  vi-forward-blank-word
@@ -54,12 +65,16 @@ unsetopt cdablevars
 
 # Misc
 setopt interactivecomments
-setopt extended_glob
+#setopt extended_glob
 
 # TMUX
 if [[ -n "${TMUX}" ]]; then
   eval $(tmux show-environment | sed -En "s/([^=]+)=(.*)/export \1='\2'/p")
 fi
+
+# History
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
 
 # Site mix-ins
 MIX_INS=(
@@ -69,4 +84,5 @@ MIX_INS=(
 )
 eachf source-if-exists $MIX_INS
 
+alias \$=eval
 alias sp='source $HOME/env/zsh/rc'

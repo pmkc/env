@@ -10,3 +10,5 @@ alias mvn='mvn -T1C'
 alias emacs-gtk=emacs
 alias xcape="pgrep xcape || xcape -e 'Caps_Lock=Escape;Control_L=Escape'"
 alias vd=vimdiff
+alias unhide="rename 's/^.//'"
+alias hide="rename 's/^/./'"

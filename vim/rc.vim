@@ -11,6 +11,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'will133/vim-dirdiff'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -333,3 +334,7 @@ set clipboard+=unnamed
 " comment
 nmap <C-_> gcc
 vmap <C-_> gc
+
+if has("patch-8.1.0360")
+    set diffopt+=internal,algorithm:patience
+endif

@@ -49,7 +49,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -110,31 +110,8 @@ fi
 
 ####pclay's stuff####
 
-# Fancy title
-case "$TERM" in
-xterm*|rxvt*)
-  TITLE_BASE=''
-  PROMPT_COMMAND='echo -ne "\e]0;${USER}@$(hostname -s): $(pretty-dirname)\a"'
-
-  function show_command_in_title_bar()
-  {
-    case "${BASH_COMMAND}" in
-      *"\e]0;"*)
-       # The command is trying to set the title bar as well;
-       # this is most likely the execution of $PROMPT_COMMAND.
-       # In any case nested escapes confuse the terminal, so don't
-       # output them.
-       ;;
-     *)
-       echo -ne "\e]0;${USER}@$(hostname -s): $(pretty-dirname) ${BASH_COMMAND%% *}\a"
-       ;;
-    esac
-  }
-  trap show_command_in_title_bar DEBUG
-  ;;
-*)
-    ;;
-esac
-
 # gcloud bash complete
-source $HOME/lib/google-cloud-sdk/completion.bash.inc
+
+for f in ~/env/common/* ~/site-env/bash/rc; do
+  [[ -r $f ]] && . $f
+done
