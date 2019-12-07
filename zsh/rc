@@ -2,13 +2,14 @@
 
 #set -x
 
-#bash; exit $?
+path=($HOME/bin $path)
+source ~/env/common/rc_helpers.sh
+#source $HOME/python/pkb/bin/aws_zsh_completer.sh
 
 ### Antigen
 source ~/env/lib/antigen/antigen.zsh
 antigen init ~/env/zsh/antigen/rc
 
-source ~/env/common/rc_helpers.sh
 # autoload -Uz compinit bashcompinit
 # compinit
 # bashcompinit
@@ -72,7 +73,11 @@ if [[ -n "${TMUX}" ]]; then
   eval $(tmux show-environment | sed -En "s/([^=]+)=(.*)/export \1='\2'/p")
 fi
 
+# C-s / C-q
+stty -ixon
+
 # History
+setopt incappendhistory
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
 

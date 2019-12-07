@@ -135,6 +135,10 @@ highlight MatchParen ctermbg=4
 "{{{Look and Feel
 
 " Favorite Color Scheme
+" Transparent backround
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
 colorscheme jellybeans
 
 "Status line gnarliness
