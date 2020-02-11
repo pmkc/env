@@ -96,14 +96,9 @@ bind -n S-Left  previous-window
 bind -n S-Right next-window
 
 # THEME
-set -g status-bg black
-set -g status-fg white
-set -g window-status-current-bg white
-set -g window-status-current-fg black
-TMUX_WINDOW_FORMAT='|#I:#W#T|'
-set -g window-status-current-attr bold
-#set -g window-status-format $TMUX_WINDOW_FORMAT
-#set -g window-status-current-format $TMUX_WINDOW_FORMAT
+set -g status-style bg=black
+set -g window-status-style bg=black,fg=white
+set -g window-status-current-style bg=blue,fg=white,bold
 set -g status-interval 10
 set -g status-justify centre
 set -g status-left-length 30
