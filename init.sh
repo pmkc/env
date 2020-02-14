@@ -5,20 +5,20 @@ rm -f ~/.profile ~/.bashrc ~/.zshenv ~/.zshrc ~/.tmux.conf ~/.vimrc ~/.vim ~/.co
 mkdir -p ~/.cache ~/.config
 
 # Shells
-ln -ns env/common/profile ~/.profile
-ln -ns env/bash/rc ~/.bashrc
-ln -ns env/zsh/env ~/.zshenv
+ln -nsf env/common/profile ~/.profile
+ln -nsf env/bash/rc ~/.bashrc
+ln -nsf env/zsh/env ~/.zshenv
 
 # Vim
 mkdir -p ~/.cache/vim
-ln -ns ~/env/vim/rc.vim ~/.vimrc
-ln -ns ~/env/vim ~/.vim
+ln -nsf ~/env/vim/rc.vim ~/.vimrc
+ln -nsf ~/env/vim ~/.vim
 
 # Tmux
-ln -ns env/tmux/conf ~/.tmux.conf
+ln -nsf ~/env/tmux/conf ~/.tmux.conf
 
 # Awesome WM
-ln -ns env/awesome ~/.config/awesome
+ln -nsf ~/env/awesome ~/.config/awesome
 
 # misc
-ln -nst .config ~/env/misc/config/*
+echo ~/env/config/* | xargs -n1 ln -nsft .config
