@@ -94,7 +94,7 @@ retry () {
     n="$2"
     shift 2
   fi
-  while ! "$@"
+  while ! ("$@" && break)
     do sleep "$n"
    done
 }

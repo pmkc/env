@@ -2,7 +2,7 @@
 
 # Cleanup
 rm -f ~/.profile ~/.bashrc ~/.zshenv ~/.zshrc ~/.tmux.conf ~/.vimrc ~/.vim ~/.config/awesome ~/.config/user-dirs.dirs
-mkdir -p ~/.cache ~/.config
+mkdir -p ~/.cache ~/.config ~/bin
 
 # Shells
 ln -nsf env/common/profile ~/.profile
@@ -21,4 +21,4 @@ ln -nsf ~/env/tmux/conf ~/.tmux.conf
 ln -nsf ~/env/awesome ~/.config/awesome
 
 # misc
-echo ~/env/config/* | xargs -n1 ln -nsft .config
+echo ~/env/config/* | xargs -n1 ln -nsft ~/.config

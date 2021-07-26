@@ -10,7 +10,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/AnsiEsc.vim'
-Plugin 'derekwyatt/vim-scala'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'will133/vim-dirdiff'
 call vundle#end()            " required
 filetype plugin indent on    " required
