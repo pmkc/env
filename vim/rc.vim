@@ -341,4 +341,7 @@ vmap <C-_> gc
 
 if has("patch-8.1.0360")
     set diffopt+=internal,algorithm:patience
+
+" Aleays keep panels even
+au VimResized * if &equalalways | wincmd = | endif
 endif
